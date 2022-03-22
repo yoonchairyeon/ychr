@@ -1,27 +1,16 @@
-import React, {useState} from 'react';
-import Button from './Button.js';
-import styles from './App.module.css'
-
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Explore from './pages/Explore';
+import Subscription from './pages/Subscription';
 
 function App() {
-
-
-  const [Value, setValue] = useState(false);
-
-
-  function onClick() {
-    setValue(Value => !Value);
-  }
-
-
-  return (
-    <div className={styles.box}>
-      <Button onClick = {onClick} text = "버튼" />
-      {Value == true&&<div>버튼을 눌렀습니다.</div>}
-      {Value == false&&<div>버튼을 취소했습니다.</div>}
-    </div>
-  )
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/subscription" element={<Subscription />} />
+        </Routes>
+    );
 }
-
 
 export default App;

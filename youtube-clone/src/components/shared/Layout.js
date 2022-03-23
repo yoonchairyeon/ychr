@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function Layout({children, activeMenu}) {
   const[onoff, setOnOff] = useState(true);
-
+  
   function onClickMenu() {
     setOnOff(!onoff);
   }
@@ -14,8 +14,8 @@ function Layout({children, activeMenu}) {
     <div className = {styles.container}>
       <Header onClickMenu={onClickMenu}/>
       <div className={styles.layout}>
-        {onoff ? <Menu activeMenu={activeMenu}/> : <div></div>}
-        <div className = {styles.contents}>{children}</div>
+        {onoff ? <Menu activeMenu={activeMenu}/> : null}
+        <div className = {onoff ? styles.contents : styles.hideMenu}>{children}</div>
       </div>
     </div>
   )
